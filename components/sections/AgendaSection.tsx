@@ -3,7 +3,6 @@ import { TOPICS } from "@/constants";
 import { HiOutlineBell } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-
 import { useRef } from "react";
 
 const AgendaSection = () => {

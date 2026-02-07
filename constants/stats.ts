@@ -8,7 +8,7 @@ import {
 
 export const SUMMARY_STATS: StatItem[] = [
   { value: 800, suffix: "+", label: "Students Placed", icon: FaGraduationCap },
-  { value: 15, suffix: "+", label: "Years Experience", icon: FaCalendarAlt },
+  { value: 10, suffix: "+", label: "Years Experience", icon: FaCalendarAlt },
   {
     value: 500,
     suffix: "+",

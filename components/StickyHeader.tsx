@@ -10,6 +10,7 @@ interface StickyHeaderProps {
 
 const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <div
@@ -18,7 +19,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
         }`}
       >
         {/* Background with blur */}
-        <div className="absolute inset-0 bg-white/90 backdrop-blur-xl border-b border-gray-200/60" />
+        <div className="absolute inset-0 bg-white/95 backdrop-blur-xl border-b border-gray-200/60" />
 
         {/* Subtle gradient overlay */}
         <div
@@ -30,9 +31,9 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
         />
 
         {/* Content Container */}
-        <div className="relative py-2.5  flex justify-between items-center max-w-7xl mx-auto">
+        <div className="relative px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo Section */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center shrink-0">
             <div className="relative group">
               <Image
                 src="/images/logo.svg"
@@ -40,15 +41,16 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
                 width={200}
                 height={100}
                 priority
-                className="h-8 sm:h-9 lg:h-14 w-auto  object-cover transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                className="h-7 sm:h-9 lg:h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
               />
             </div>
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center gap-2 sm:gap-3 mx-5 sm:mx-0">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop Urgency Badge */}
             <div
-              className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-1.5 lg:py-2 rounded-full shadow-sm border"
+              className="hidden lg:flex items-center gap-2.5 px-4 py-2 rounded-full shadow-sm border"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(255,237,213,1) 0%, rgba(254,243,199,1) 100%)",
@@ -56,72 +58,64 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
               }}
             >
               <div className="relative flex items-center justify-center">
-                <div className="absolute w-3 h-3 bg-orange-500 rounded-full animate-ping opacity-75" />
-                <div className="relative w-2.5 h-2.5 bg-orange-500 rounded-full" />
+                <div className="absolute w-3 h-3 bg-amber-500 rounded-full animate-ping opacity-75" />
+                <div className="relative w-2.5 h-2.5 bg-amber-500 rounded-full" />
               </div>
-              <span className="text-xs lg:text-sm font-bold text-orange-700 whitespace-nowrap">
-                Only <span className="text-orange-600">47 Seats</span> Left!
+              <span className="text-sm font-bold text-amber-700 whitespace-nowrap">
+                Only <span className="text-amber-600">47 Seats</span> Left!
               </span>
             </div>
 
-            {/* Urgency Badge - Mobile Only */}
-            <div className="flex md:hidden items-center gap-1.5 px-2.5 py-1.5 bg-orange-50 border border-orange-200 rounded-full">
-              <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-              <span className="text-[11px] font-bold text-orange-600">
+            {/* Tablet Urgency Badge */}
+            <div className="hidden md:flex lg:hidden items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-full">
+              <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+              <span className="text-xs font-bold text-amber-600">
+                47 Seats Left
+              </span>
+            </div>
+
+            {/* Mobile Urgency Badge  */}
+            <div className="flex md:hidden items-center gap-1.5 px-2.5 py-1.5 bg-linear-to-r from-amber-50 to-orange-50 border border-amber-300/50 rounded-full shadow-sm">
+              <div className="relative flex items-center justify-center">
+                <div className="absolute w-2 h-2 bg-amber-500 rounded-full animate-ping opacity-60" />
+                <div className="relative w-1.5 h-1.5 bg-amber-500 rounded-full" />
+              </div>
+              <span className="text-[10px] font-extrabold text-amber-700 tracking-tight">
                 47 Left
               </span>
             </div>
 
-            {/* Register Button */}
+            {/* Register Button  */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group relative bg-linear-to-r from-orange-400 via-orange-500 to-orange-400 overflow-hidden text-white px-3 sm:px-5 lg:px-7 py-2 sm:py-2.5 cursor-pointer rounded-full sm:rounded-xl font-bold text-xs sm:text-sm lg:text-base  transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30  flex items-center gap-1.5 sm:gap-2 border-2 border-orange-400/50"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "scale(1.05) translateY(-1px)";
-                e.currentTarget.style.boxShadow =
-                  "0 10px 30px rgba(255,107,53,0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 15px rgba(255,107,53,0.2)";
-              }}
+              className="group relative overflow-hidden bg-amber-400  text-white px-3 sm:px-5 lg:px-8 py-2 sm:py-2.5 lg:py-3 cursor-pointer rounded-full sm:rounded-xl font-bold text-xs sm:text-sm lg:text-base transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 border border-amber-400/50"
             >
               {/* Shimmer effect */}
-              <span
-                className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)",
-                }}
-              />
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out">
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
+              </span>
 
-              {/* Icon - Mobile */}
-              <FaRocket className="w-3 h-3 sm:hidden text-white relative z-10" />
+              <FaRocket className="w-3.5 h-3.5 sm:hidden text-white relative z-10 drop-shadow-sm" />
 
-              {/* Text - Desktop */}
-              <span className="relative z-10 font-extrabold hidden sm:inline tracking-wide">
+              <span className="relative z-10 font-extrabold hidden sm:inline tracking-wide drop-shadow-sm">
                 Register Free
               </span>
 
-              {/* Text - Mobile */}
-              <span className="relative z-10 font-extrabold sm:hidden">
+              <span className="relative z-10 font-black sm:hidden drop-shadow-sm">
                 Join
               </span>
 
-              {/* Arrow Icon */}
-              <FaArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 relative z-10 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
+              <FaArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 relative z-10 transition-transform group-hover:translate-x-1 group-hover:scale-110 drop-shadow-sm" />
             </button>
           </div>
         </div>
 
-        {/* Bottom shadow */}
+        {/* Bottom shadow  */}
         <div
-          className="absolute -bottom-3 left-0 right-0 h-3 pointer-events-none"
+          className="absolute -bottom-2 left-0 right-0 h-2 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, transparent 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, transparent 100%)",
           }}
         />
       </div>

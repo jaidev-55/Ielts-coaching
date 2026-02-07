@@ -1,12 +1,11 @@
 "use client";
 
-import { COUNTRIES } from "@/constants";
 import { FaCalendarAlt, FaClock, FaGift } from "react-icons/fa";
 import CountdownTimer from "../Countdowntimer";
 import RegistrationForm from "../Registrationform";
 import Particles from "../Particles";
 
-const CountriesSection = () => {
+const HeroSection = () => {
   return (
     <section
       className="relative min-h-screen mt-10 flex items-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden"
@@ -63,45 +62,19 @@ const CountriesSection = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-lg shadow-green-500/50"></span>
             </span>
-            <span
-              className="font-bold text-xs sm:text-[13px] tracking-wide"
-              style={{
-                background: "linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                fontFamily: "'Poppins', sans-serif",
-              }}
-            >
+            <span className="font-bold text-xs sm:text-[13px] tracking-wide text-amber-400">
               LIVE IELTS WRITING WEBINAR — LIMITED SEATS
             </span>
           </div>
 
           {/* Enhanced Title */}
-          <h1
-            className="text-[32px] sm:text-[42px] lg:text-[54px] font-extrabold leading-[1.18] mb-5 animate-[fadeUp_0.8s_ease_0.4s_both]"
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-            }}
-          >
+          <h1 className="text-[32px] sm:text-[42px] lg:text-[54px] font-extrabold leading-[1.18] mb-5 animate-[fadeUp_0.8s_ease_0.4s_both]">
             <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
               Master IELTS Writing
               <br />
               Task 1 & Task 2{" "}
             </span>
-            <span
-              className="inline-block"
-              style={{
-                background:
-                  "linear-gradient(135deg, #FF6B35 0%, #F7C948 50%, #FFD700 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                filter: "drop-shadow(0 2px 8px rgba(255,107,53,0.3))",
-              }}
-            >
-              With Confidence
-            </span>
+            <span className="inline-block text-amber-400">With Confidence</span>
           </h1>
 
           {/* Enhanced Subtitle */}
@@ -109,7 +82,6 @@ const CountriesSection = () => {
             className="text-base sm:text-[17px] leading-[1.75] mb-8 max-w-full lg:max-w-122.5 animate-[fadeUp_0.8s_ease_0.6s_both]"
             style={{
               color: "rgba(255, 255, 255, 0.85)",
-              fontFamily: "'Nunito', sans-serif",
             }}
           >
             A focused{" "}
@@ -123,15 +95,7 @@ const CountriesSection = () => {
               2-hour IELTS Writing masterclass
             </strong>{" "}
             covering both{" "}
-            <strong
-              className="font-bold"
-              style={{
-                background: "linear-gradient(135deg, #F7C948, #FFD700)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <strong className="font-bold text-amber-400">
               Task 1 & Task 2
             </strong>
             . Learn how to plan, structure, and write high-scoring answers that
@@ -176,20 +140,20 @@ const CountriesSection = () => {
               {
                 icon: FaCalendarAlt,
                 text: "Feb 11, 2026 — 7 PM IST",
-                gradient: "from-orange-500/10 to-orange-600/5",
-                border: "border-orange-500/20",
+                gradient: "from-amber-400/10 to-amber-500/5",
+                border: "border-amber-400/20",
               },
               {
                 icon: FaClock,
                 text: "2-Hour IELTS Writing Session",
-                gradient: "from-blue-400/10 to-blue-500/5",
-                border: "border-blue-400/20",
+                gradient: "from-amber-400/10 to-amber-500/5",
+                border: "border-amber-400/20",
               },
               {
                 icon: FaGift,
                 text: "Free Writing Samples & Band Descriptors",
-                gradient: "from-green-400/10 to-green-500/5",
-                border: "border-green-400/20",
+                gradient: "from-amber-400/10 to-amber-500/5",
+                border: "border-amber-400/20",
               },
             ].map((item, i) => (
               <div
@@ -201,7 +165,7 @@ const CountriesSection = () => {
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
-                <item.icon className="w-4 h-4" style={{ color: "#FF6B35" }} />
+                <item.icon className="w-4 h-4" style={{ color: "#FBBF24" }} />
                 <span>{item.text}</span>
               </div>
             ))}
@@ -256,7 +220,7 @@ const CountriesSection = () => {
           id="register"
         >
           <div
-            className="rounded-3xl p-8 relative backdrop-blur-sm"
+            className="rounded-3xl p-5 relative backdrop-blur-sm"
             style={{
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%)",
@@ -273,14 +237,14 @@ const CountriesSection = () => {
               className="absolute -top-4 left-1/2 -translate-x-1/2 font-bold text-xs px-6 py-2 rounded-full whitespace-nowrap animate-pulse"
               style={{
                 background:
-                  "linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #F7C948 100%)",
+                  "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #FCD34D 100%)",
                 color: "#FFFFFF",
                 fontFamily: "'Poppins', sans-serif",
                 boxShadow: `
-              0 6px 20px rgba(255, 107, 53, 0.4),
-              0 2px 8px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255,255,255,0.3)
-            `,
+      0 6px 20px rgba(251, 191, 36, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255,255,255,0.3)
+    `,
               }}
             >
               🔥 Only 47 Seats Left!
@@ -318,4 +282,4 @@ const CountriesSection = () => {
   );
 };
 
-export default CountriesSection;
+export default HeroSection;
