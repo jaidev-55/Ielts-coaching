@@ -149,23 +149,6 @@ const CTAAndFooter = () => {
             </span>
           </p>
 
-          {/* Contact Info Cards */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-amber-400/40 hover:shadow-md transition-all duration-300 group">
-              <FaMapMarkerAlt className="text-amber-400 text-sm group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-gray-600 text-xs sm:text-sm font-nunito group-hover:text-gray-800 transition-colors duration-300">
-                Anna Nagar, Chennai
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-amber-400/40 hover:shadow-md transition-all duration-300 group">
-              <FaPhone className="text-amber-400 text-sm group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-gray-600 text-xs sm:text-sm font-nunito group-hover:text-gray-800 transition-colors duration-300">
-                Career Guidance Available
-              </span>
-            </div>
-          </div>
-
           {/* Gradient Divider */}
           <div
             className="h-0.5 mb-6 mx-auto max-w-xs rounded-full"

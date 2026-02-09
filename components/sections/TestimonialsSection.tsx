@@ -84,7 +84,7 @@ const TestimonialsSection: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
           <div
-            className={`inline-block transition-all duration-700 ${
+            className={` transition-all duration-700 ${
               tVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-4"
@@ -132,8 +132,8 @@ const TestimonialsSection: React.FC = () => {
               onClick={() => setIsModalOpen(true)}
               className="group relative overflow-hidden cursor-pointer
       bg-amber-400 text-white
-      px-3 sm:px-5 lg:px-8
-      py-2 sm:py-2.5 lg:py-3
+     px-8
+      py-3
       rounded-full
       font-bold text-xs sm:text-sm lg:text-base
       transition-all duration-300
@@ -154,21 +154,9 @@ const TestimonialsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16">
-          {TESTIMONIALS.map((testimonial, i) => (
-            <TestimonialCard
-              key={testimonial.name}
-              testimonial={testimonial}
-              visible={tVisible}
-              delay={`${i * 0.12}s`}
-            />
-          ))}
-        </div>
-
         {/* Video Testimonials */}
 
-        <div className="mt-16 sm:mt-20">
+        <div className="my-16 sm:my-20">
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4 px-2 sm:px-0">
             <div className="flex-1">
@@ -278,6 +266,17 @@ const TestimonialsSection: React.FC = () => {
               />
             ))}
           </div>
+        </div>
+        {/* Testimonial Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16">
+          {TESTIMONIALS.map((testimonial, i) => (
+            <TestimonialCard
+              key={testimonial.name}
+              testimonial={testimonial}
+              visible={tVisible}
+              delay={`${i * 0.12}s`}
+            />
+          ))}
         </div>
 
         <div className="mt-16 sm:mt-20 lg:mt-24">

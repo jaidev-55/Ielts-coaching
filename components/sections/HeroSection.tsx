@@ -48,7 +48,7 @@ const HeroSection = () => {
       />
 
       <div className="max-w-7xl mx-auto w-full flex gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 flex-col lg:flex-row">
-        {/* Left side - Content */}
+        {/* Left side */}
         <div className="flex-1 w-full lg:max-w-155">
           {/* Badge */}
           <div
@@ -76,7 +76,7 @@ const HeroSection = () => {
             <span className="text-white drop-shadow-lg">
               Crack IELTS with Confidence
               <br />
-              <span className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-bold opacity-90">
+              <span className="text-2xl sm:text-3xl font-bold opacity-90">
                 Listening • Reading • Writing • Speaking
               </span>
             </span>

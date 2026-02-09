@@ -210,7 +210,7 @@ const AgendaSection = () => {
                 <div className="relative z-10">
                   {/* Icon Container */}
                   <motion.div
-                    className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl text-amber-500 mb-4 sm:mb-5 shadow-sm"
+                    className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl text-amber-400 mb-4 sm:mb-5 shadow-sm"
                     style={{
                       background:
                         "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.07) 100%)",
