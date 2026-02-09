@@ -168,7 +168,7 @@ const AgendaSection = () => {
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
               </span>
 
-              <span>Start Your IELTS Journey Free</span>
+              <span>Start Your IELTS Journey</span>
               <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -292,7 +292,7 @@ const AgendaSection = () => {
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
               </span>
 
-              <span className="relative z-10">Reserve Your Free Seat Now</span>
+              <span className="relative z-10">Reserve Your Seat Now</span>
               <HiArrowRight className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-2" />
             </button>
           </div>

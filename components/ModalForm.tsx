@@ -314,7 +314,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
                           <span className="relative z-10 drop-shadow-sm">
                             {brochure
                               ? "Download Free Brochure"
-                              : "Reserve My Free Seat Now"}
+                              : "Reserve My Seat Now"}
                           </span>
                         </button>
 

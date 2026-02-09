@@ -148,7 +148,7 @@ const TestimonialsSection: React.FC = () => {
               </span>
 
               <span className="relative z-10">
-                Book Your Free IELTS Consultation
+                Book Your IELTS Consultation
               </span>
             </button>
           </div>

@@ -146,11 +146,11 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ brochure }) => {
       {/* Submit Button */}
       <button
         type="submit"
-        className="group relative w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-amber-400 transition-all duration-300 flex items-center justify-center gap-2 mt-2 font-poppins shadow-lg shadow-amber-500/30 hover:shadow-xl hover:-translate-y-0.5 active:scale-95 overflow-hidden"
+        className="group cursor-pointer relative w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-amber-400 transition-all duration-300 flex items-center justify-center gap-2 mt-2 font-poppins shadow-lg shadow-amber-500/30 hover:shadow-xl hover:-translate-y-0.5 active:scale-95 overflow-hidden"
       >
         <FaRocket className="relative z-10 w-4 h-4 group-hover:scale-110 transition-transform" />
         <span className="relative z-10">
-          {brochure ? "Download Free Brochure" : "Reserve My Free Seat Now"}
+          {brochure ? "Download Free Brochure" : "Book your classes"}
         </span>
       </button>
 

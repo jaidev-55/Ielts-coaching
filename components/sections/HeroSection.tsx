@@ -66,7 +66,8 @@ const HeroSection = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-lg shadow-green-500/50"></span>
             </span>
             <span className="font-bold text-[10px] sm:text-xs tracking-wide text-amber-400 uppercase">
-              FREE IELTS MASTERCLASS — ALL 4 MODULES (ACADEMIC & GENERAL)
+              Learn How to Score Band 7+ in IELTS — Proven Strategies from
+              Certified Experts
             </span>
           </div>
 
@@ -115,6 +116,13 @@ const HeroSection = () => {
             <div className="inline-flex items-center gap-2 sm:gap-3 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 backdrop-blur-sm border border-green-400/30 bg-green-500/10 text-white">
               <span className="text-xs sm:text-sm font-semibold">
                 Live sessions • Recorded access • Mock tests • Expert feedback
+              </span>
+            </div>
+
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full px-4 py-2 bg-amber-400/15 border border-amber-400/40">
+              <FaChartLine className="text-amber-400 text-sm" />
+              <span className="text-xs sm:text-sm font-bold text-white">
+                Band 7+ Target • Unlimited Mock Practice Sessions Included
               </span>
             </div>
           </div>
