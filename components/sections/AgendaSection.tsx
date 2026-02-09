@@ -1,6 +1,6 @@
 "use client";
 import { TOPICS } from "@/constants";
-import { HiOutlineBell } from "react-icons/hi";
+import { HiOutlineBell, HiOutlineLightBulb } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -91,9 +91,9 @@ const AgendaSection = () => {
             variants={headerVariants}
             className="inline-block"
           >
-            <span className="inline-flex items-center gap-2 bg-linear-to-r from-[#FF6B35]/10 to-[#FF6B35]/5 text-[#FF6B35] font-bold text-xs px-5 sm:px-6 py-2.5 rounded-full mb-5 tracking-[1.4px] font-poppins uppercase shadow-sm border border-[#FF6B35]/10">
+            <span className="inline-flex items-center gap-2 bg-linear-to-r from-amber-400/15 to-amber-500/10 text-amber-400 font-bold text-xs px-5 sm:px-6 py-2.5 rounded-full mb-5 tracking-[1.4px] font-poppins uppercase shadow-sm border border-amber-400/20">
               <HiOutlineBell className="w-3.5 h-3.5" />
-              Webinar Agenda
+              Course Curriculum
             </span>
           </motion.div>
 
@@ -109,13 +109,13 @@ const AgendaSection = () => {
             <span
               className="inline-block"
               style={{
-                background: "linear-gradient(135deg, #FF6B35, #FF8C42)",
+                background: "linear-gradient(135deg, #FBBF24, #F59E0B)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
             >
-              Task 1 & Task 2 with Confidence
+              Task 1 & Task 2 for Higher Band Scores
             </span>
           </motion.h2>
 
@@ -126,18 +126,20 @@ const AgendaSection = () => {
             variants={descriptionVariants}
             className="text-[#666] text-[15px] sm:text-[16px] max-w-150 mx-auto font-nunito leading-[1.75]"
           >
-            A focused{" "}
+            A structured{" "}
             <span className="font-semibold text-[#1a1a2e]">
-              2-hour IELTS Writing masterclass
+              IELTS Writing course
             </span>{" "}
-            covering both{" "}
-            <span className="font-semibold text-[#FF6B35]">
+            designed to help you clearly understand and confidently handle{" "}
+            <span className="font-semibold text-amber-500">
               Task 1 and Task 2
-            </span>
-            . Learn how to plan, structure, and write high-scoring answers that
-            meet examiner expectations and boost your{" "}
+            </span>{" "}
+            using proven frameworks, real exam strategies, and examiner-aligned
+            writing techniques. Learn how to plan answers effectively, structure
+            responses logically, and avoid common mistakes — so you can improve
+            your{" "}
             <span className="font-semibold text-[#1a1a2e]">
-              Writing Band Score
+              IELTS Writing Band Score
             </span>
             .
           </motion.p>
@@ -157,18 +159,18 @@ const AgendaSection = () => {
                 key={i}
                 variants={itemVariants}
                 whileHover={{
-                  y: -8,
-                  scale: 1.02,
+                  y: -6,
+                  scale: 1.015,
                   transition: { duration: 0.3, ease: "easeOut" },
                 }}
-                className="group relative bg-white rounded-2xl p-7 sm:p-8 border border-[#E8E8F0] cursor-pointer shadow-sm hover:shadow-[0_20px_60px_rgba(255,107,53,0.12)] hover:border-[#FF6B35]/30 transition-all duration-300"
+                className="group relative bg-white rounded-2xl p-7 sm:p-8 border border-[#ECECF3] cursor-pointer shadow-sm hover:shadow-[0_18px_50px_rgba(245,158,11,0.18)] hover:border-amber-400/40 transition-all duration-300"
               >
                 {/* Hover gradient overlay */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(135deg, rgba(255,107,53,0.02) 0%, transparent 100%)",
+                      "linear-gradient(135deg, rgba(245,158,11,0.04) 0%, transparent 100%)",
                   }}
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
@@ -179,14 +181,14 @@ const AgendaSection = () => {
                 <div className="relative z-10">
                   {/* Icon Container */}
                   <motion.div
-                    className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl text-[#FF6B35] mb-5"
+                    className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl text-amber-500 mb-5"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,107,53,0.05) 100%)",
+                        "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.07) 100%)",
                     }}
                     whileHover={{
-                      scale: 1.1,
-                      rotate: 5,
+                      scale: 1.08,
+                      rotate: 4,
                       transition: { duration: 0.3, ease: "easeOut" },
                     }}
                   >
@@ -194,12 +196,12 @@ const AgendaSection = () => {
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-[17px] sm:text-[18px] font-bold text-[#1a1a2e] mb-3 font-poppins leading-[1.4] group-hover:text-[#FF6B35] transition-colors duration-300">
+                  <h3 className="text-[17px] sm:text-[18px] font-bold text-[#1a1a2e] mb-3 font-poppins leading-[1.4] group-hover:text-amber-500 transition-colors duration-300">
                     {t.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[14px] sm:text-[15px] text-[#777] leading-[1.7] font-nunito">
+                  <p className="text-[14px] sm:text-[15px] text-[#6F6F7A] leading-[1.7] font-nunito">
                     {t.desc}
                   </p>
                 </div>
@@ -208,7 +210,7 @@ const AgendaSection = () => {
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl"
                   style={{
-                    background: "linear-gradient(90deg, #FF6B35, #FF8C42)",
+                    background: "linear-gradient(90deg, #FBBF24, #F59E0B)",
                   }}
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
@@ -226,7 +228,7 @@ const AgendaSection = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-center mt-12 sm:mt-14"
         >
-          <p className="text-sm text-[#999] font-nunito">
+          <p className="text-sm text-[#777] font-nunito">
             <motion.span
               className="inline-block mr-1"
               animate={{
@@ -239,9 +241,9 @@ const AgendaSection = () => {
                 repeatDelay: 3,
               }}
             >
-              💡
+              <HiOutlineLightBulb className="w-5  h-5 text-amber-400" />
             </motion.span>
-            Each topic includes live Q&A and downloadable resources
+            Each topic is explained with clear examples and guided support
           </p>
         </motion.div>
       </div>

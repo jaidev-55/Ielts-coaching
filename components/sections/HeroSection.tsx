@@ -1,7 +1,13 @@
 "use client";
 
-import { FaCalendarAlt, FaClock, FaGift } from "react-icons/fa";
-import CountdownTimer from "../Countdowntimer";
+import {
+  FaBookOpen,
+  FaChartLine,
+  FaGraduationCap,
+  FaInfinity,
+  FaRocket,
+  FaUserCheck,
+} from "react-icons/fa";
 import RegistrationForm from "../Registrationform";
 import Particles from "../Particles";
 
@@ -63,28 +69,28 @@ const HeroSection = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-lg shadow-green-500/50"></span>
             </span>
             <span className="font-bold text-xs sm:text-[13px] tracking-wide text-amber-400">
-              LIVE IELTS WRITING WEBINAR — LIMITED SEATS
+              IELTS WRITING COURSE — TASK 1 & TASK 2 (EXAM-FOCUSED)
             </span>
           </div>
 
-          {/* Enhanced Title */}
           <h1 className="text-[32px] sm:text-[42px] lg:text-[54px] font-extrabold leading-[1.18] mb-5 animate-[fadeUp_0.8s_ease_0.4s_both]">
             <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
               Master IELTS Writing
               <br />
-              Task 1 & Task 2{" "}
+              Task 1 & Task 2
             </span>
-            <span className="inline-block text-amber-400">With Confidence</span>
+            <span className="inline-block text-amber-400">
+              For Higher Band Scores
+            </span>
           </h1>
 
           {/* Enhanced Subtitle */}
+
           <p
             className="text-base sm:text-[17px] leading-[1.75] mb-8 max-w-full lg:max-w-122.5 animate-[fadeUp_0.8s_ease_0.6s_both]"
-            style={{
-              color: "rgba(255, 255, 255, 0.85)",
-            }}
+            style={{ color: "rgba(255, 255, 255, 0.85)" }}
           >
-            A focused{" "}
+            A structured{" "}
             <strong
               className="font-bold"
               style={{
@@ -92,18 +98,20 @@ const HeroSection = () => {
                 textShadow: "0 0 20px rgba(255,255,255,0.3)",
               }}
             >
-              2-hour IELTS Writing masterclass
+              IELTS Writing course
             </strong>{" "}
-            covering both{" "}
+            designed to help you confidently handle{" "}
             <strong className="font-bold text-amber-400">
               Task 1 & Task 2
-            </strong>
-            . Learn how to plan, structure, and write high-scoring answers that
-            meet{" "}
-            <strong className="font-bold text-white">
-              examiner expectations
             </strong>{" "}
-            and boost your{" "}
+            using clear frameworks, real exam strategies, and examiner-approved
+            structures.
+            <br className="hidden sm:block" />
+            Learn how to{" "}
+            <strong className="font-bold text-white">
+              analyze questions correctly, structure answers effectively,
+            </strong>{" "}
+            and avoid the mistakes that reduce scores — so you can improve your{" "}
             <strong
               className="font-bold"
               style={{
@@ -113,12 +121,12 @@ const HeroSection = () => {
                 backgroundClip: "text",
               }}
             >
-              Writing Band Score
+              IELTS Writing Band Score
             </strong>
             .
           </p>
 
-          {/* Countdown */}
+          {/* Course Access Status */}
           <div className="mb-8 animate-[fadeUp_0.8s_ease_1s_both]">
             <p
               className="text-[11px] uppercase tracking-[2px] mb-3.5 font-bold flex items-center gap-2"
@@ -128,44 +136,60 @@ const HeroSection = () => {
                 textShadow: "0 1px 2px rgba(0,0,0,0.2)",
               }}
             >
-              ⏰ IELTS WRITING WEBINAR STARTS IN
+              <FaRocket className="text-amber-400 text-xs" />
+              IELTS Writing Course Access
             </p>
 
-            <CountdownTimer />
+            <div
+              className="inline-flex items-center gap-3 rounded-xl px-5 py-4 backdrop-blur-sm border"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(16,185,129,0.1) 100%)",
+                border: "1.5px solid rgba(34,197,94,0.3)",
+                boxShadow: "0 4px 16px rgba(34,197,94,0.2)",
+                color: "rgba(255,255,255,0.95)",
+                fontFamily: "'Nunito', sans-serif",
+              }}
+            >
+              <span className="text-sm font-semibold">
+                Flexible batch options • Schedule shared after enrollment •
+                Guided instruction
+              </span>
+            </div>
           </div>
 
-          {/* Enhanced Info badges */}
+          {/* Course Highlights */}
           <div className="flex gap-3 flex-wrap mb-7">
             {[
               {
-                icon: FaCalendarAlt,
-                text: "Feb 11, 2026 — 7 PM IST",
-                gradient: "from-amber-400/10 to-amber-500/5",
-                border: "border-amber-400/20",
+                icon: FaBookOpen,
+                text: "Complete Task 1 & Task 2 Coverage",
               },
               {
-                icon: FaClock,
-                text: "2-Hour IELTS Writing Session",
-                gradient: "from-amber-400/10 to-amber-500/5",
-                border: "border-amber-400/20",
+                icon: FaChartLine,
+                text: "Band Score Improvement Focus",
               },
               {
-                icon: FaGift,
-                text: "Free Writing Samples & Band Descriptors",
-                gradient: "from-amber-400/10 to-amber-500/5",
-                border: "border-amber-400/20",
+                icon: FaUserCheck,
+                text: "Examiner-Aligned Writing Strategies",
+              },
+              {
+                icon: FaInfinity,
+                text: "Self-Paced Learning (No Fixed Start Date)",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className={`rounded-xl px-4 py-2.5 text-xs sm:text-[13px] font-semibold flex items-center gap-2.5 backdrop-blur-sm border transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.border}`}
+                className="rounded-xl px-4 py-2.5 text-xs sm:text-[13px] font-semibold flex items-center gap-2.5 backdrop-blur-sm border transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 style={{
-                  background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                  border: "1px solid rgba(255,255,255,0.15)",
                   color: "rgba(255, 255, 255, 0.9)",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
-                <item.icon className="w-4 h-4" style={{ color: "#FBBF24" }} />
+                <item.icon className="w-4 h-4" style={{ color: "#4ADE80" }} />
                 <span>{item.text}</span>
               </div>
             ))}
@@ -234,7 +258,7 @@ const HeroSection = () => {
           >
             {/* Enhanced Badge */}
             <div
-              className="absolute -top-4 left-1/2 -translate-x-1/2 font-bold text-xs px-6 py-2 rounded-full whitespace-nowrap animate-pulse"
+              className="absolute whitespace-nowrap flex items-center gap-1.5 -top-4 left-1/2 -translate-x-1/2 font-bold text-xs px-6 py-2 rounded-full animate-pulse"
               style={{
                 background:
                   "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #FCD34D 100%)",
@@ -247,7 +271,8 @@ const HeroSection = () => {
     `,
               }}
             >
-              🔥 Only 47 Seats Left!
+              <FaGraduationCap className="text-xs sm:text-sm" />
+              <span>Admissions Now Open</span>
             </div>
 
             <h3

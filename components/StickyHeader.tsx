@@ -48,7 +48,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
 
           {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Desktop Urgency Badge */}
+            {/* Desktop Admissions Badge */}
             <div
               className="hidden lg:flex items-center gap-2.5 px-4 py-2 rounded-full shadow-sm border"
               style={{
@@ -61,48 +61,33 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ visible }) => {
                 <div className="absolute w-3 h-3 bg-amber-500 rounded-full animate-ping opacity-75" />
                 <div className="relative w-2.5 h-2.5 bg-amber-500 rounded-full" />
               </div>
-              <span className="text-sm font-bold text-amber-700 whitespace-nowrap">
-                Only <span className="text-amber-600">47 Seats</span> Left!
+              <span className="text-sm  font-bold text-amber-700 whitespace-nowrap">
+                Admissions <span className="text-amber-600">Now Open</span>
               </span>
             </div>
 
-            {/* Tablet Urgency Badge */}
+            {/* Tablet Admissions Badge */}
             <div className="hidden md:flex lg:hidden items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-full">
               <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
               <span className="text-xs font-bold text-amber-600">
-                47 Seats Left
+                Admissions Open
               </span>
             </div>
 
-            {/* Mobile Urgency Badge  */}
-            <div className="flex md:hidden items-center gap-1.5 px-2.5 py-1.5 bg-linear-to-r from-amber-50 to-orange-50 border border-amber-300/50 rounded-full shadow-sm">
-              <div className="relative flex items-center justify-center">
-                <div className="absolute w-2 h-2 bg-amber-500 rounded-full animate-ping opacity-60" />
-                <div className="relative w-1.5 h-1.5 bg-amber-500 rounded-full" />
-              </div>
-              <span className="text-[10px] font-extrabold text-amber-700 tracking-tight">
-                47 Left
-              </span>
-            </div>
-
-            {/* Register Button  */}
+            {/* Register Button */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group relative overflow-hidden bg-amber-400  text-white px-3 sm:px-5 lg:px-8 py-2 sm:py-2.5 lg:py-3 cursor-pointer rounded-full sm:rounded-xl font-bold text-xs sm:text-sm lg:text-base transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 border border-amber-400/50"
+              className="group relative overflow-hidden bg-amber-400 text-white px-3 sm:px-5 lg:px-8 py-2 sm:py-2.5 lg:py-3 cursor-pointer rounded-full sm:rounded-xl font-bold text-xs sm:text-sm lg:text-base transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 border border-amber-400/50"
             >
-              {/* Shimmer effect */}
+              {/* Shimmer */}
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out">
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
               </span>
 
-              <FaRocket className="w-3.5 h-3.5 sm:hidden text-white relative z-10 drop-shadow-sm" />
+              <FaRocket className="w-3.5 h-3.5 sm:hidden relative z-10 drop-shadow-sm" />
 
-              <span className="relative z-10 font-extrabold hidden sm:inline tracking-wide drop-shadow-sm">
-                Register Free
-              </span>
-
-              <span className="relative z-10 font-black sm:hidden drop-shadow-sm">
-                Join
+              <span className="relative z-10 font-extrabold  sm:inline tracking-wide drop-shadow-sm">
+                Apply Now
               </span>
 
               <FaArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 relative z-10 transition-transform group-hover:translate-x-1 group-hover:scale-110 drop-shadow-sm" />

@@ -8,12 +8,15 @@ import {
   HiSparkles,
   HiCheckCircle,
   HiArrowRight,
+  HiOutlineGlobeAlt,
 } from "react-icons/hi2";
 import ModalForm from "../ModalForm";
+import { IconType } from "react-icons";
+import ReactCountryFlag from "react-country-flag";
 
 interface Country {
   name: string;
-  flag: string;
+  code: string;
   unis: string;
   minIELTS: string;
   description: string;
@@ -23,7 +26,7 @@ interface Country {
 const COUNTRIES: Country[] = [
   {
     name: "UK",
-    flag: "🇬🇧",
+    code: "GB",
     unis: "130+ Universities",
     minIELTS: "IELTS 6.0+",
     description: "World-class education with historic institutions",
@@ -31,7 +34,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "Canada",
-    flag: "🇨🇦",
+    code: "CA",
     unis: "90+ Universities",
     minIELTS: "IELTS 6.5+",
     description: "Post-study work visa & immigration pathways",
@@ -39,7 +42,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "Australia",
-    flag: "🇦🇺",
+    code: "AU",
     unis: "85+ Universities",
     minIELTS: "IELTS 6.5+",
     description: "High quality of life & excellent job opportunities",
@@ -47,7 +50,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "USA",
-    flag: "🇺🇸",
+    code: "US",
     unis: "200+ Universities",
     minIELTS: "IELTS 6.0+",
     description: "Top-ranked universities & research opportunities",
@@ -55,7 +58,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "Ireland",
-    flag: "🇮🇪",
+    code: "IE",
     unis: "35+ Universities",
     minIELTS: "IELTS 6.5+",
     description: "Tech hub of Europe with friendly culture",
@@ -63,7 +66,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "New Zealand",
-    flag: "🇳🇿",
+    code: "NZ",
     unis: "25+ Universities",
     minIELTS: "IELTS 6.5+",
     description: "Safe, beautiful & welcoming environment",
@@ -71,7 +74,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "Germany",
-    flag: "🇩🇪",
+    code: "DE",
     unis: "40+ Universities",
     minIELTS: "IELTS 6.0+",
     description: "Low tuition fees & strong economy",
@@ -79,7 +82,7 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "France",
-    flag: "🇫🇷",
+    code: "FR",
     unis: "30+ Universities",
     minIELTS: "IELTS 6.0+",
     description: "Rich culture & affordable education",
@@ -118,11 +121,11 @@ const CountriesSection: React.FC = () => {
                 : "opacity-0 -translate-y-4"
             }`}
           >
-            <HiGlobeAlt className="w-5 h-5 text-orange-400 animate-pulse" />
-            <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-orange-400">
+            <HiGlobeAlt className="w-5 h-5 text-amber-400 animate-pulse" />
+            <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-amber-400">
               STUDY ABROAD WITH IELTS
             </span>
-            <HiSparkles className="w-4 h-4 text-yellow-400" />
+            <HiSparkles className="w-4 h-4 text-amber-400" />
           </div>
 
           {/* Title */}
@@ -134,7 +137,7 @@ const CountriesSection: React.FC = () => {
             }`}
           >
             Countries You Can Study With <br className="hidden sm:block" />
-            <span className="bg-linear-to-r from-orange-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-amber-400 bg-clip-text text-transparent">
               Your IELTS Score
             </span>
           </h2>
@@ -148,7 +151,7 @@ const CountriesSection: React.FC = () => {
             }`}
           >
             Know the{" "}
-            <span className="text-orange-400 font-semibold">
+            <span className="text-amber-400 font-semibold">
               minimum IELTS score
             </span>{" "}
             required to study in top destinations worldwide.
@@ -188,10 +191,17 @@ const CountriesSection: React.FC = () => {
 
               {/* Content */}
               <div className="relative p-6 sm:p-7 text-center">
-                {/* Flag */}
+                {/* Icon */}
                 <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-linear-to-br from-slate-700/50 to-slate-800/50 border border-slate-600/50 shadow-lg">
-                    <span className="text-4xl sm:text-5xl">{country.flag}</span>
+                  <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-slate-800/60 border border-slate-600/50 shadow-lg">
+                      <ReactCountryFlag
+                        svg
+                        countryCode={country.code}
+                        className="w-12 h-12 sm:w-14 sm:h-28 rounded-md"
+                        title={country.name}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -218,7 +228,7 @@ const CountriesSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Description (Shows on hover/click) */}
+                {/* Description */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
                     selectedCountry === country.name
@@ -237,7 +247,7 @@ const CountriesSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bottom Glow Effect */}
+              {/* Bottom Glow */}
               <div
                 className={`absolute bottom-0 left-0 right-0 h-px bg-linear-to-r ${country.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
@@ -256,7 +266,7 @@ const CountriesSection: React.FC = () => {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="group cursor-pointer inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-linear-to-r from-orange-400 via-orange-500 to-orange-400  text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1"
+            className="group cursor-pointer inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-amber-400 text-white font-bold text-sm sm:text-base shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all hover:-translate-y-1"
           >
             <span>Get Personalized Guidance</span>
             <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

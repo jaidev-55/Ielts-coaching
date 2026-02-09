@@ -1,7 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes, FaRocket, FaCheckCircle } from "react-icons/fa";
+import {
+  FaTimes,
+  FaRocket,
+  FaCheckCircle,
+  FaGraduationCap,
+} from "react-icons/fa";
 
 interface ModalFormProps {
   isOpen: boolean;
@@ -140,15 +145,16 @@ const ModalForm: React.FC<ModalFormProps> = ({
                   <FaTimes className="text-gray-600 group-hover:text-gray-800 transition-colors duration-200 w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
 
-                {/* Top Badge - Amber Color */}
+                {/* Top Badge  */}
                 <div
-                  className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-[10px] sm:text-xs text-white z-10 shadow-lg whitespace-nowrap"
+                  className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-[10px] sm:text-xs text-white z-10 shadow-lg whitespace-nowrap flex items-center gap-1.5"
                   style={{
                     background:
-                      "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #F97316 100%)",
+                      "linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)",
                   }}
                 >
-                  🔥 Only 47 Seats Left!
+                  <FaGraduationCap className="text-xs sm:text-sm" />
+                  <span>Admissions Now Open</span>
                 </div>
 
                 {/* Content - Mobile Optimized Padding */}
@@ -165,14 +171,14 @@ const ModalForm: React.FC<ModalFormProps> = ({
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             backgroundClip: "text",
-                            fontFamily: "'Poppins', sans-serif",
                           }}
                         >
-                          Register for Free
+                          Register for IELTS Training
                         </h3>
-                        <p className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-2 font-nunito">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                          Secure your spot in 30 seconds
+
+                        <p className="text-xs sm:text-sm text-gray-600 font-nunito">
+                          Fill in your details and our team will get in touch
+                          with you
                         </p>
                       </div>
 

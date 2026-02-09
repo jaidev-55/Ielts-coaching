@@ -4,24 +4,31 @@ import React, { useState } from "react";
 import { useInView } from "@/hooks";
 import {
   HiCheckCircle,
-  HiDownload,
-  HiMail,
   HiPhone,
   HiUser,
   HiSparkles,
   HiShieldCheck,
-  HiLightningBolt,
   HiAcademicCap,
-  HiOutlineRefresh,
-} from "react-icons/hi";
+  HiQuestionMarkCircle,
+  HiCheckBadge,
+} from "react-icons/hi2";
 import {
   FaBook,
   FaHeadphones,
   FaPen,
   FaComments,
   FaTrophy,
+  FaUserGraduate,
 } from "react-icons/fa";
 import { IoMdBook } from "react-icons/io";
+import { BiSolidBookOpen } from "react-icons/bi";
+import {
+  HiClipboardList,
+  HiDownload,
+  HiLightningBolt,
+  HiMail,
+  HiOutlineRefresh,
+} from "react-icons/hi";
 
 interface FormData {
   name: string;
@@ -36,9 +43,9 @@ interface RegFormProps {
 }
 
 const TEST_TYPES = [
-  { name: "IELTS Academic", flag: "🎓" },
-  { name: "IELTS General Training", flag: "📋" },
-  { name: "Not Sure Yet", flag: "🤔" },
+  { name: "IELTS Academic", icon: HiAcademicCap },
+  { name: "IELTS General Training", icon: HiClipboardList },
+  { name: "Not Sure Yet", icon: HiQuestionMarkCircle },
 ];
 
 function RegForm({ brochure, pdfUrl }: RegFormProps) {
@@ -101,12 +108,12 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
     return (
       <div className="text-center p-6 sm:p-10 animate-fade-up">
         <div className="relative inline-block mb-4 sm:mb-6">
-          <div className="absolute inset-0 bg-linear-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl animate-pulse" />
-          <div className="relative text-5xl sm:text-7xl animate-bounce-in">
-            🎉
+          <div className="absolute inset-0 bg-linear-to-r from-amber-500/20 to-yellow-500/20 rounded-full blur-2xl animate-pulse" />
+          <div className="relative">
+            <HiCheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-amber-500 mx-auto animate-bounce-in" />
           </div>
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-dark mb-2 sm:mb-3 font-poppins px-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 font-poppins px-4">
           {brochure ? "Guide Downloaded!" : "You're Registered!"}
         </h3>
         <p className="text-sm sm:text-base text-gray-600 font-nunito mb-4 sm:mb-6 max-w-sm mx-auto px-4">
@@ -128,7 +135,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       <div className="relative group">
         <div className="relative">
           {/* Icon */}
-          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-amber-500 transition-colors">
             <HiUser className="text-lg sm:text-xl" />
           </div>
 
@@ -141,10 +148,10 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
               setFormData({ ...formData, name: e.target.value });
               setErrors({ ...errors, name: "" });
             }}
-            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 ${
+            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 text-gray-900 placeholder:text-gray-400 ${
               errors.name
                 ? "border-red-300 focus:border-red-500 focus:bg-red-50/50"
-                : "border-gray-200 focus:border-primary focus:bg-white"
+                : "border-gray-200 focus:border-amber-500 focus:bg-white focus:shadow-[0_0_0_4px_rgba(245,158,11,0.08)]"
             }`}
           />
         </div>
@@ -163,7 +170,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       {/* Email Input */}
       <div className="relative group">
         <div className="relative">
-          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-amber-500 transition-colors">
             <HiMail className="text-lg sm:text-xl" />
           </div>
 
@@ -175,10 +182,10 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
               setFormData({ ...formData, email: e.target.value });
               setErrors({ ...errors, email: "" });
             }}
-            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 text-gray-800 placeholder:text-gray-400 ${
+            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 text-gray-900 placeholder:text-gray-400 ${
               errors.email
                 ? "border-red-300 focus:border-red-500 focus:bg-red-50/50"
-                : "border-gray-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,53,0.08)]"
+                : "border-gray-200 focus:border-amber-500 focus:bg-white focus:shadow-[0_0_0_4px_rgba(245,158,11,0.08)]"
             }`}
             aria-invalid={!!errors.email}
             aria-describedby="email-error"
@@ -201,7 +208,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       {/* Phone Input */}
       <div className="relative group">
         <div className="relative">
-          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-amber-500 transition-colors">
             <HiPhone className="text-lg sm:text-xl" />
           </div>
 
@@ -213,10 +220,10 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
               setFormData({ ...formData, phone: e.target.value });
               setErrors({ ...errors, phone: "" });
             }}
-            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 text-gray-800 placeholder:text-gray-400 ${
+            className={`w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl border-2 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 text-gray-900 placeholder:text-gray-400 ${
               errors.phone
                 ? "border-red-300 focus:border-red-500 focus:bg-red-50/50"
-                : "border-gray-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,53,0.08)]"
+                : "border-gray-200 focus:border-amber-500 focus:bg-white focus:shadow-[0_0_0_4px_rgba(245,158,11,0.08)]"
             }`}
             aria-invalid={!!errors.phone}
             aria-describedby="phone-error"
@@ -239,7 +246,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
 
       {/* Test Type Select */}
       <div className="relative group">
-        <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors pointer-events-none">
+        <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-amber-500 transition-colors pointer-events-none z-10">
           <HiAcademicCap className="text-lg sm:text-xl" />
         </div>
         <select
@@ -247,13 +254,15 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
           onChange={(e) =>
             setFormData({ ...formData, testType: e.target.value })
           }
-          className="w-full pl-10 sm:pl-12 pr-8 sm:pr-10 py-3 sm:py-4 rounded-xl border-2 border-gray-200 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 cursor-pointer appearance-none focus:border-primary focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,53,0.08)]"
-          style={{ color: formData.testType ? "#333" : "#999" }}
+          className="w-full pl-10 sm:pl-12 pr-8 sm:pr-10 py-3 sm:py-4 rounded-xl border-2 border-gray-200 text-sm sm:text-base outline-none transition-all font-nunito bg-gray-50 cursor-pointer appearance-none focus:border-amber-500 focus:bg-white focus:shadow-[0_0_0_4px_rgba(245,158,11,0.08)] text-gray-900"
+          style={{ color: formData.testType ? "#111827" : "#9ca3af" }}
         >
-          <option value="">Choose Your Test Type</option>
+          <option value="" className="text-gray-400">
+            Choose Your Test Type
+          </option>
           {TEST_TYPES.map((t) => (
-            <option key={t.name} value={t.name} className="text-gray-800">
-              {t.flag} {t.name}
+            <option key={t.name} value={t.name} className="text-gray-900">
+              {t.name}
             </option>
           ))}
         </select>
@@ -278,7 +287,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       <button
         onClick={handleSubmit}
         disabled={isSubmitting}
-        className="group w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-linear-to-r from-orange-400 via-orange-500 to-orange-400 text-white font-bold text-sm sm:text-base transition-all duration-300 font-poppins shadow-lg hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg flex items-center justify-center gap-2 relative overflow-hidden cursor-pointer"
+        className="group w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-amber-400 text-white font-bold text-sm sm:text-base transition-all duration-300 font-poppins shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg flex items-center justify-center gap-2 relative overflow-hidden cursor-pointer"
       >
         {/* Content */}
         <span className="relative z-10 flex items-center justify-center gap-2">
@@ -289,8 +298,9 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
             </>
           ) : brochure ? (
             <>
-              <HiDownload className="text-lg sm:text-xl" />
+              <HiDownload className="text-lg sm:text-xl group-hover:animate-bounce" />
               <span>Download Free Guide</span>
+              <HiLightningBolt className="text-lg sm:text-xl group-hover:rotate-12 transition-transform" />
             </>
           ) : (
             <>
@@ -306,7 +316,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       </button>
 
       {/* Security Badge */}
-      <div className="flex items-center justify-center gap-2 text-xs text-gray-400 font-nunito pt-2">
+      <div className="flex items-center justify-center gap-2 text-xs text-gray-500 font-nunito pt-2">
         <HiShieldCheck className="text-green-500 text-sm sm:text-base" />
         <span className="text-center">100% secure. No spam, ever.</span>
       </div>
@@ -335,14 +345,14 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
       color: "from-green-500 to-green-600",
     },
     {
-      icon: FaBook,
+      icon: BiSolidBookOpen,
       text: "Reading comprehension techniques & time management",
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: FaPen,
       text: "Writing Task 1 & 2 templates with examples",
-      color: "from-orange-500 to-orange-600",
+      color: "from-amber-500 to-amber-600",
     },
     {
       icon: FaComments,
@@ -351,27 +361,58 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
     },
   ];
 
+  const trustIndicators = [
+    {
+      icon: BiSolidBookOpen,
+      value: "8+",
+      label: "Pages",
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+    },
+    {
+      icon: HiAcademicCap,
+      value: "4",
+      label: "Sections",
+      iconBg: "bg-emerald-100",
+      iconColor: "text-emerald-600",
+    },
+    {
+      icon: FaTrophy,
+      value: "8+",
+      label: "Band Score",
+      iconBg: "bg-amber-100",
+      iconColor: "text-amber-600",
+    },
+  ];
+
+  const socialProofAvatars = [
+    { icon: FaUserGraduate, color: "from-blue-500 to-blue-600" },
+    { icon: HiAcademicCap, color: "from-amber-500 to-amber-600" },
+    { icon: FaUserGraduate, color: "from-purple-500 to-purple-600" },
+    { icon: HiCheckBadge, color: "from-green-500 to-green-600" },
+  ];
+
   return (
     <section
       ref={bRef}
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-linear-to-br from-orange-50 via-yellow-50 to-orange-50 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-linear-to-br from-amber-50 via-yellow-50 to-amber-50 overflow-hidden"
     >
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-br from-primary/5 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-tl from-secondary/5 to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-br from-amber-500/5 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-tl from-yellow-500/5 to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       {/* Floating Icons Animation - Hidden on mobile */}
       <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         <IoMdBook
-          className="absolute top-20 left-[10%] text-4xl sm:text-6xl text-primary animate-float"
+          className="absolute top-20 left-[10%] text-4xl sm:text-6xl text-amber-600 animate-float"
           style={{ animationDelay: "0s" }}
         />
         <FaTrophy
-          className="absolute top-40 right-[15%] text-3xl sm:text-5xl text-secondary animate-float"
+          className="absolute top-40 right-[15%] text-3xl sm:text-5xl text-yellow-600 animate-float"
           style={{ animationDelay: "1s" }}
         />
         <HiAcademicCap
-          className="absolute bottom-32 left-[20%] text-5xl sm:text-7xl text-primary animate-float"
+          className="absolute bottom-32 left-[20%] text-5xl sm:text-7xl text-amber-600 animate-float"
           style={{ animationDelay: "2s" }}
         />
       </div>
@@ -387,7 +428,7 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
             }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-linear-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary font-bold text-[10px] sm:text-xs px-3 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-linear-to-r from-amber-400/10 to-yellow-400/10 border border-amber-400/20 text-amber-500 font-bold text-[10px] sm:text-xs px-3 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-6 backdrop-blur-sm">
               <IoMdBook className="text-sm sm:text-base" />
               <span className="tracking-wider font-poppins uppercase">
                 Free IELTS Resource
@@ -396,18 +437,18 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
             </div>
 
             {/* Title */}
-            <h2 className="font-poppins text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-dark mb-4 sm:mb-6 leading-tight">
+            <h2 className="font-poppins text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Get Your Free
               <br />
-              <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
                 IELTS Preparation Guide
               </span>
             </h2>
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8 font-nunito">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8 font-nunito">
               A comprehensive{" "}
-              <span className="font-bold text-primary">8 page guide</span>{" "}
+              <span className="font-bold text-amber-500">8 page guide</span>{" "}
               covering all 4 IELTS sections with proven strategies, practice
               materials, band score requirements, and expert tips to achieve
               your target score.
@@ -433,7 +474,7 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
                       <Icon className="text-white text-base sm:text-xl" />
                     </div>
                     <div className="flex-1 pt-1.5 sm:pt-2">
-                      <span className="text-gray-700 text-sm sm:text-base font-semibold font-nunito group-hover:text-dark transition-colors">
+                      <span className="text-gray-800 text-sm sm:text-base font-semibold font-nunito group-hover:text-gray-900 transition-colors">
                         {feature.text}
                       </span>
                     </div>
@@ -443,31 +484,33 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
             </div>
 
             {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4">
-              <div className="text-center p-3 sm:p-4 bg-white/60 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50">
-                <div className="text-xl sm:text-2xl font-bold text-primary font-poppins">
-                  8+
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-600 font-nunito">
-                  Pages
-                </div>
-              </div>
-              <div className="text-center p-3 sm:p-4 bg-white/60 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50">
-                <div className="text-xl sm:text-2xl font-bold text-primary font-poppins">
-                  4
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-600 font-nunito">
-                  Sections
-                </div>
-              </div>
-              <div className="text-center p-3 sm:p-4 bg-white/60 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50">
-                <div className="text-xl sm:text-2xl font-bold text-primary font-poppins">
-                  8+
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-600 font-nunito">
-                  Band Score
-                </div>
-              </div>
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+              {trustIndicators.map((item, i) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={i}
+                    className="text-center p-3 sm:p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-gray-200"
+                  >
+                    <div
+                      className={`w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 rounded-xl flex items-center justify-center ${item.iconBg}`}
+                    >
+                      <Icon
+                        className={`text-xl sm:text-2xl ${item.iconColor}`}
+                      />
+                    </div>
+
+                    <div className="text-xl sm:text-2xl font-extrabold font-poppins text-gray-900">
+                      {item.value}
+                    </div>
+
+                    <div className="text-xs sm:text-sm text-gray-600 font-nunito mt-1">
+                      {item.label}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -482,7 +525,7 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
           >
             <div className="relative">
               {/* Glow Effect */}
-              <div className="absolute -inset-2 sm:-inset-4 bg-linear-to-r from-primary/20 to-secondary/20 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-60" />
+              <div className="absolute -inset-2 sm:-inset-4 bg-linear-to-r from-amber-500/20 to-yellow-500/20 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-60" />
 
               {/* Form Card */}
               <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-100">
@@ -495,15 +538,15 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
                 {/* Form Header */}
                 <div className="text-center mb-6 sm:mb-8">
                   <div className="inline-block relative mb-3 sm:mb-4">
-                    <div className="absolute inset-0 bg-linear-to-r from-primary/20 to-secondary/20 rounded-full blur-lg sm:blur-xl animate-pulse" />
-                    <div className="relative text-4xl sm:text-6xl animate-bob">
-                      📚
+                    <div className="absolute inset-0 bg-linear-to-r from-amber-400/20 to-yellow-500/20 rounded-full blur-lg sm:blur-xl animate-pulse" />
+                    <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-linear-to-br from-amber-400 to-yellow-400 flex items-center justify-center mx-auto animate-bob">
+                      <IoMdBook className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="font-poppins text-lg sm:text-xl md:text-2xl font-extrabold text-dark mb-1 sm:mb-2 px-4">
+                  <h3 className="font-poppins text-lg sm:text-xl md:text-2xl font-extrabold text-gray-900 mb-1 sm:mb-2 px-4">
                     Download Free IELTS Guide
                   </h3>
-                  <p className="text-gray-500 text-xs sm:text-sm font-nunito flex items-center justify-center gap-1.5 sm:gap-2 px-4">
+                  <p className="text-gray-600 text-xs sm:text-sm font-nunito flex items-center justify-center gap-1.5 sm:gap-2 px-4">
                     <HiCheckCircle className="text-green-500 text-sm sm:text-base" />
                     Instant access — no waiting
                   </p>
@@ -514,19 +557,22 @@ const BrochureSection: React.FC<BrochureSectionProps> = ({
 
                 {/* Social Proof */}
                 <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-100">
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500 font-nunito">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600 font-nunito">
                     <div className="flex -space-x-2">
-                      {["😊", "🤩", "😄", "🥳"].map((emoji, i) => (
-                        <div
-                          key={i}
-                          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-linear-to-br from-gray-100 to-gray-200 border-2 border-white flex items-center justify-center text-xs sm:text-sm"
-                        >
-                          {emoji}
-                        </div>
-                      ))}
+                      {socialProofAvatars.map((avatar, i) => {
+                        const Icon = avatar.icon;
+                        return (
+                          <div
+                            key={i}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-linear-to-br ${avatar.color} border-2 border-white flex items-center justify-center shadow-sm`}
+                          >
+                            <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                        );
+                      })}
                     </div>
                     <span className="text-center">
-                      <strong className="text-dark">15,847</strong> students
+                      <strong className="text-gray-900">15,847</strong> students
                       downloaded this week
                     </span>
                   </div>

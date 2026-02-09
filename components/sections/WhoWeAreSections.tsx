@@ -22,7 +22,7 @@ const WhoWeAreSections = () => {
         <div className="max-w-225 mx-auto">
           {/* Badge */}
           <div className="text-center mb-6">
-            <span className="inline-block bg-linear-to-r from-[#FF6B35]/10 to-[#F7C948]/10 text-[#FF6B35] font-bold text-xs px-5 py-2 rounded-full tracking-[1.5px] font-poppins uppercase border border-[#FF6B35]/20">
+            <span className="inline-block bg-linear-to-r from-amber-400/10 to-amber-500/10 text-amber-600 font-bold text-xs px-5 py-2 rounded-full tracking-[1.5px] font-poppins uppercase border border-amber-400/20">
               Who We Are
             </span>
           </div>

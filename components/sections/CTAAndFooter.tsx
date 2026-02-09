@@ -66,18 +66,10 @@ const CTAAndFooter = () => {
               ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Don't Let This Opportunity
+            Take the Next Step Towards
             <br />
-            <span
-              className="inline-block mt-1"
-              style={{
-                background: "linear-gradient(135deg, #FF6B35, #F7C948)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Pass You By
+            <span className="bg-linear-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
+              Your IELTS Success
             </span>
           </h2>
 
@@ -87,38 +79,39 @@ const CTAAndFooter = () => {
               ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Seats are filling fast. Register now and take the first step toward
-            your international education journey.
+            Learn the same proven strategies that helped our students improve
+            their IELTS band scores. Limited seats available for the upcoming
+            batch.
           </p>
 
           {/* CTA Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className={`group inline-flex items-center justify-center gap-3 rounded-xl px-8 sm:px-10 py-4 sm:py-4.5 text-white font-poppins font-bold text-sm sm:text-base cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_44px_rgba(255,107,53,0.55)] mb-5 delay-300 ${
+            className={`group inline-flex items-center justify-center gap-3 rounded-xl px-8 sm:px-10 py-4 sm:py-4.5 text-white font-poppins font-bold text-sm sm:text-base cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_44px_rgba(245,158,11,0.45)] mb-5 ${
               ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
-              background: "linear-gradient(135deg, #FF6B35, #F7C948)",
+              background: "linear-gradient(135deg, #F59E0B, #FBBF24)",
             }}
           >
             <FaRocket className="text-lg group-hover:animate-bounce" />
-            <span>Register for Free — Limited Seats</span>
+            <span>Join the Upcoming IELTS Batch</span>
           </button>
 
           {/* Trust badges */}
           <div
-            className={`flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/40 text-xs sm:text-sm font-nunito transition-all duration-700 delay-400 ${
+            className={`flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/50 text-xs sm:text-sm font-nunito transition-all duration-700 delay-400 ${
               ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             {[
-              { icon: FaCheckCircle, text: "100% Free" },
-              { icon: FaCheckCircle, text: "No Credit Card" },
-              { icon: FaCheckCircle, text: "Instant Confirmation" },
-            ].map((item, idx) => (
+              "7-Day Structured Training",
+              "Online & Offline Available",
+              "Proven Student Results",
+            ].map((text, idx) => (
               <div key={idx} className="flex items-center gap-2">
-                <item.icon className="text-[#10B981] text-sm" />
-                <span>{item.text}</span>
+                <FaCheckCircle className="text-emerald-400 text-sm" />
+                <span>{text}</span>
               </div>
             ))}
           </div>
@@ -139,8 +132,8 @@ const CTAAndFooter = () => {
           {/* Logo & Brand */}
           <div className="mb-5">
             <div className="inline-flex items-center justify-center gap-2.5 mb-3 group">
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#FF6B35]/10 to-[#F7C948]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-[#FF6B35]/20">
-                <FaGlobeAmericas className="text-[#FF6B35] text-xl" />
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-amber-400/15 to-amber-500/15 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-amber-400/30">
+                <FaGlobeAmericas className="text-amber-400 text-xl" />
               </div>
               <div className="text-[#1a1a2e] font-poppins text-xl sm:text-2xl font-extrabold">
                 Abroad Scholars
@@ -151,31 +144,24 @@ const CTAAndFooter = () => {
           {/* Tagline */}
           <p className="text-gray-600 text-sm sm:text-[15px] font-nunito mb-6 leading-relaxed">
             India's Trusted Study Abroad Consultants Since{" "}
-            <span
-              className="font-bold"
-              style={{
-                background: "linear-gradient(135deg, #FF6B35, #F7C948)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="font-bold bg-linear-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
               2009
             </span>
           </p>
 
           {/* Contact Info Cards */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-[#FF6B35]/40 hover:shadow-md transition-all duration-300 group">
-              <FaMapMarkerAlt className="text-[#FF6B35] text-sm group-hover:scale-110 transition-transform duration-300" />
+            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-amber-400/40 hover:shadow-md transition-all duration-300 group">
+              <FaMapMarkerAlt className="text-amber-400 text-sm group-hover:scale-110 transition-transform duration-300" />
               <span className="text-gray-600 text-xs sm:text-sm font-nunito group-hover:text-gray-800 transition-colors duration-300">
                 Anna Nagar, Chennai
               </span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-[#FF6B35]/40 hover:shadow-md transition-all duration-300 group">
-              <FaPhone className="text-[#FF6B35] text-sm group-hover:scale-110 transition-transform duration-300" />
+
+            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-lg border border-gray-200 hover:border-amber-400/40 hover:shadow-md transition-all duration-300 group">
+              <FaPhone className="text-amber-400 text-sm group-hover:scale-110 transition-transform duration-300" />
               <span className="text-gray-600 text-xs sm:text-sm font-nunito group-hover:text-gray-800 transition-colors duration-300">
-                Free Counseling Available
+                Career Guidance Available
               </span>
             </div>
           </div>
@@ -191,7 +177,7 @@ const CTAAndFooter = () => {
 
           {/* Copyright */}
           <p className="text-gray-400 text-[11px] sm:text-xs font-nunito">
-            © 2026 Abroad Scholars. All rights reserved.
+            © {new Date().getFullYear()} Abroad Scholars. All rights reserved.
           </p>
         </div>
       </footer>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Testimonial } from "../types";
-import { HiCheckBadge } from "react-icons/hi2";
+import { HiCheckBadge, HiOutlineLightBulb } from "react-icons/hi2";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -15,7 +15,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 }) => {
   return (
     <div
-      className={`group bg-white rounded-2xl overflow-hidden border-2 border-slate-100 transition-all duration-500 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-[#FF6B35]/30 ${
+      className={`group bg-white rounded-2xl overflow-hidden border-2 border-slate-100 transition-all duration-500 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-amber-500/30 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: delay }}
@@ -63,12 +63,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </p>
 
         {/* Achievement highlight badge */}
-        <div className="bg-linear-to-r from-orange-50 to-amber-50 rounded-xl px-4 py-3 border border-orange-100 transition-all duration-300 group-hover:shadow-md">
+        <div className="bg-linear-to-r from-amber-50 to-amber-100/60 rounded-xl px-4 py-3 border border-amber-200/40 transition-all duration-300 group-hover:shadow-md">
           <div className="text-[10px] text-[#888] font-bold uppercase tracking-wider font-nunito mb-1">
             Achievement
           </div>
-          <div className="text-sm text-[#FF6B35] font-bold font-poppins flex items-center gap-2">
-            <span>✨</span>
+          <div className="text-sm text-amber-600 font-semibold font-nunito flex items-center gap-2">
+            <HiOutlineLightBulb className="w-4 h-4 text-amber-500" />
             <span>{testimonial.highlight}</span>
           </div>
         </div>

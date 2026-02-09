@@ -15,6 +15,7 @@ import {
   HiChevronRight,
   HiSparkles,
   HiPlay,
+  HiPlayCircle,
 } from "react-icons/hi2";
 
 const TestimonialsSection: React.FC = () => {
@@ -87,9 +88,9 @@ const TestimonialsSection: React.FC = () => {
                 : "opacity-0 -translate-y-4"
             }`}
           >
-            <span className="inline-flex items-center gap-2 bg-linear-to-r from-[#FF6B35]/10 to-[#FF6B35]/5 text-[#FF6B35] font-bold text-xs px-5 sm:px-6 py-2.5 rounded-full mb-5 tracking-[1.4px] font-poppins uppercase shadow-sm border border-[#FF6B35]/10">
+            <span className="inline-flex items-center gap-2 bg-linear-to-r from-amber-400/15 to-amber-500/10 text-amber-500 font-bold text-xs px-5 sm:px-6 py-2.5 rounded-full mb-5 tracking-[1.4px] font-poppins uppercase shadow-sm border border-amber-400/20">
               <HiStar className="w-4 h-4 animate-pulse" />
-              IELTS Student Success Stories
+              IELTS Student Experiences & Results
             </span>
           </div>
 
@@ -98,9 +99,9 @@ const TestimonialsSection: React.FC = () => {
               tVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            IELTS Aspirants.{" "}
-            <span className="bg-linear-to-r from-[#FF6B35] to-[#FF8C42] bg-clip-text text-transparent">
-              Real Band Improvements.
+            IELTS Aspirants.
+            <span className="bg-linear-to-r from-amber-400 to-amber-500 bg-clip-text pl-2 text-transparent">
+              Proven Learning Outcomes.
             </span>
           </h2>
 
@@ -109,12 +110,12 @@ const TestimonialsSection: React.FC = () => {
               tVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Hear from IELTS test-takers who improved their{" "}
-            <span className="font-semibold text-[#FF6B35]">
-              Writing Band Scores
+            Hear from IELTS aspirants who strengthened their{" "}
+            <span className="font-semibold text-amber-500">
+              writing performance
             </span>{" "}
-            with expert strategies, clear structure, and examiner-focused
-            guidance from{" "}
+            through structured guidance, clear answer frameworks, and
+            examiner-aligned strategies shared by{" "}
             <span className="font-semibold text-[#1a1a2e]">
               Abroad Scholars
             </span>
@@ -135,67 +136,46 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Video Testimonials */}
+
         <div className="mt-16 sm:mt-20">
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4 px-2 sm:px-0">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <div className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linear-to-br from-[#FF6B35]/10 to-[#FF6B35]/5 shadow-inner">
-                  <span className="text-xl sm:text-2xl">🎬</span>
+                <div className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linear-to-br from-amber-400/15 to-amber-500/10 shadow-inner">
+                  <HiPlayCircle className="w-6 h-6 text-amber-500" />
                 </div>
                 <h3 className="font-poppins text-xl sm:text-2xl lg:text-[28px] font-extrabold text-[#1a1a2e]">
                   Video Testimonials
                 </h3>
               </div>
-              <p className="font-nunito text-[#888] text-xs sm:text-sm lg:text-[15px] ml-14 sm:ml-15">
-                Watch real student success stories in their own words
+              <p className="font-nunito text-[#777] text-xs sm:text-sm lg:text-[15px] ml-14 sm:ml-15">
+                Hear directly from IELTS learners about their preparation
+                experience
               </p>
             </div>
 
-            {/* Navigation controls - Desktop */}
+            {/* Desktop navigation */}
             <div className="hidden sm:flex items-center gap-3">
               <div className="flex items-center gap-2 text-sm text-[#999] font-nunito mr-2">
                 <span>Swipe or use arrows</span>
                 <HiChevronRight className="w-4 h-4" />
               </div>
+
               <button
                 onClick={() => scrollVideoContainer("vidscroll", -400)}
-                className="group w-11 h-11 rounded-xl border-2 border-[#E8E8F0] bg-white cursor-pointer flex items-center justify-center transition-all hover:border-[#FF6B35] hover:shadow-lg hover:scale-105 active:scale-95"
+                className="group w-11 h-11 rounded-xl border border-slate-200 bg-white flex items-center justify-center transition-all hover:border-amber-400 hover:shadow-md"
                 aria-label="Previous video"
               >
-                <HiChevronLeft className="w-6 h-6 text-[#666] group-hover:text-[#FF6B35] transition-colors" />
+                <HiChevronLeft className="w-6 h-6 text-[#666] group-hover:text-amber-500" />
               </button>
+
               <button
                 onClick={() => scrollVideoContainer("vidscroll", 400)}
-                className="group w-11 h-11 rounded-xl border-2 border-[#FF6B35] bg-linear-to-r from-[#FF6B35] to-[#FF8C42] cursor-pointer flex items-center justify-center transition-all hover:shadow-lg hover:shadow-[#FF6B35]/40 hover:scale-105 active:scale-95"
+                className="group w-11 h-11 rounded-xl border border-amber-400 bg-linear-to-r from-amber-400 to-amber-500 flex items-center justify-center transition-all hover:shadow-lg"
                 aria-label="Next video"
               >
-                <HiChevronRight className="w-6 h-6 text-white transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation  */}
-          <div className="flex sm:hidden items-center justify-between mb-4 px-2">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
-              <span className="text-xs font-semibold text-slate-600">
-                {activeVideo + 1} / {VIDEO_TESTIMONIALS.length}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => scrollVideoContainer("vidscroll", -300)}
-                className="group w-9 h-9 rounded-xl border-2 border-[#E8E8F0] bg-white cursor-pointer flex items-center justify-center transition-all hover:border-[#FF6B35] active:scale-95"
-                aria-label="Previous video"
-              >
-                <HiChevronLeft className="w-5 h-5 text-[#666] group-hover:text-[#FF6B35] transition-colors" />
-              </button>
-              <button
-                onClick={() => scrollVideoContainer("vidscroll", 300)}
-                className="group w-9 h-9 rounded-xl border-2 border-[#FF6B35] bg-linear-to-r from-[#FF6B35] to-[#FF8C42] cursor-pointer flex items-center justify-center transition-all active:scale-95"
-                aria-label="Next video"
-              >
-                <HiChevronRight className="w-5 h-5 text-white" />
+                <HiChevronRight className="w-6 h-6 text-white" />
               </button>
             </div>
           </div>
@@ -203,18 +183,15 @@ const TestimonialsSection: React.FC = () => {
           {/* Video scroll container */}
           <div
             id="vidscroll"
-            className="flex gap-3 sm:gap-4 lg:gap-5 overflow-x-auto pb-4 sm:pb-5 snap-x snap-mandatory scroll-smooth scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0"
+            className="flex gap-3 sm:gap-4 lg:gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0"
           >
             {VIDEO_TESTIMONIALS.map((video, i) => (
               <div
                 key={i}
-                className="group relative shrink-0 w-65 sm:w-75 lg:w-96 snap-center"
+                className="group relative shrink-0 w-64 sm:w-72 lg:w-80 snap-center"
               >
-                {/* Video Card */}
-                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white shadow-lg border-2 border-slate-100 transition-all duration-300 hover:shadow-2xl hover:border-[#FF6B35]/30 hover:-translate-y-1">
-                  {/* Video Thumbnail Container */}
-                  <div className="relative aspect-9/16 sm:aspect-video overflow-hidden bg-slate-100">
-                    {/* Thumbnail Image */}
+                <div className="relative overflow-hidden rounded-xl bg-white shadow-md border border-slate-100 transition-all hover:shadow-xl hover:border-amber-400/30">
+                  <div className="relative aspect-9/16 min-h-105 sm:min-h-115 lg:min-h-130 overflow-hidden bg-slate-100">
                     <img
                       src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
                       alt={video.videoId}
@@ -224,45 +201,25 @@ const TestimonialsSection: React.FC = () => {
                       }}
                     />
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-black/20" />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/20" />
 
-                    {/* Play Button Overlay */}
+                    {/* Play button */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        {/* Pulse rings */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/20 animate-ping" />
-                        </div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-white/30 animate-pulse" />
-                        </div>
-
-                        {/* Play button */}
-                        <button
-                          onClick={() => setActiveVideoId(video.videoId)}
-                          className="relative cursor-pointer flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full bg-white/95 shadow-2xl transition-all hover:scale-110"
-                        >
-                          <HiPlay className="w-8 h-8 text-[#FF6B35]" />
-                        </button>
-                      </div>
+                      <button
+                        onClick={() => setActiveVideoId(video.videoId)}
+                        className="flex items-center cursor-pointer justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/95 shadow-xl transition-all hover:scale-110"
+                      >
+                        <HiPlay className="w-7 h-7 text-amber-500" />
+                      </button>
                     </div>
 
-                    {/* Score Badge (if available) */}
+                    {/* Optional score badge */}
                     {video.score && (
-                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 bg-linear-to-r from-[#FF6B35] to-[#FF8C42] rounded-full shadow-lg">
-                        <HiStar className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                        <span className="text-[10px] sm:text-xs font-bold text-white">
+                      <div className="absolute top-3 right-3 px-3 py-1 bg-linear-to-r from-amber-400 to-amber-500 rounded-full shadow-md flex items-center gap-1">
+                        <HiStar className="w-3.5 h-3.5 text-white" />
+                        <span className="text-xs font-bold text-white">
                           {video.score}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Duration Badge */}
-                    {video.duration && (
-                      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 px-2 py-0.5 sm:px-2.5 sm:py-1 bg-black/80 backdrop-blur-sm rounded-md sm:rounded-lg">
-                        <span className="text-[10px] sm:text-xs font-semibold text-white">
-                          {video.duration}
                         </span>
                       </div>
                     )}
@@ -272,63 +229,38 @@ const TestimonialsSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Enhanced progress dots */}
-          <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-5 sm:mt-6">
+          {/* Progress dots */}
+          <div className="flex justify-center items-center gap-2 mt-6">
             {VIDEO_TESTIMONIALS.map((_, i) => (
               <button
                 key={i}
                 onClick={() => scrollToVideoIndex("vidscroll", i)}
-                className="relative rounded-full cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95"
+                className="rounded-full transition-all"
                 style={{
-                  width:
-                    i === activeVideo
-                      ? isMobile
-                        ? 24
-                        : 32
-                      : isMobile
-                        ? 8
-                        : 10,
-                  height: isMobile ? 8 : 10,
+                  width: i === activeVideo ? 28 : 8,
+                  height: 8,
                   background:
                     i === activeVideo
-                      ? "linear-gradient(135deg, #FF6B35, #FF8C42)"
-                      : "#E0E0E8",
+                      ? "linear-gradient(135deg, #FBBF24, #F59E0B)"
+                      : "#E5E7EB",
                 }}
-                aria-label={`Go to video ${i + 1}`}
-              >
-                {i === activeVideo && (
-                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-[#FF6B35] to-[#FF8C42] animate-pulse opacity-50" />
-                )}
-              </button>
+              />
             ))}
-          </div>
-
-          {/* Video counter  */}
-          <div className="hidden sm:flex justify-center mt-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full">
-              <p className="text-xs sm:text-sm text-[#999] font-nunito">
-                <span className="font-bold text-[#FF6B35]">
-                  {activeVideo + 1}
-                </span>
-                <span className="mx-1.5">/</span>
-                <span>{VIDEO_TESTIMONIALS.length}</span>
-              </p>
-            </div>
           </div>
         </div>
 
         <div className="mt-16 sm:mt-20 lg:mt-24">
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-orange-50 to-amber-50 rounded-full mb-4 border border-orange-100">
-              <HiSparkles className="w-4 h-4 text-orange-500 animate-pulse" />
-              <span className="text-xs sm:text-sm font-bold text-orange-600 tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-amber-50 to-amber-100/60 rounded-full mb-4 border border-amber-200/40">
+              <HiSparkles className="w-4 h-4 text-amber-500 animate-pulse" />
+              <span className="text-xs sm:text-sm font-bold text-amber-600 tracking-wider uppercase">
                 Our Impact
               </span>
             </div>
             <h3 className="font-poppins text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1a1a2e] mb-2">
               Numbers That{" "}
-              <span className="bg-linear-to-r from-[#FF6B35] to-[#FF8C42] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
                 Speak for Themselves
               </span>
             </h3>
