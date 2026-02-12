@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Free Study Abroad Webinar | Abroad Scholars",
@@ -38,6 +39,16 @@ export default function RootLayout({
         />
       </head>
       <body style={{ margin: 0, padding: 0 }}>
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/vg2eh5cqsb";
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script");
+  `}
+        </Script>
+
         {children}
         <WhatsAppButton />
       </body>
