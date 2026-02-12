@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Free Study Abroad Webinar | Abroad Scholars",
   description:
     "Join 8,000+ successful students. Free expert-led webinar on university selection, scholarships, visa strategies across 8 countries.",
+
+  icons: {
+    icon: "/favicon.svg",
+  },
+
   keywords: [
     "study abroad",
     "webinar",
@@ -15,6 +20,7 @@ export const metadata: Metadata = {
     "university selection",
     "international education",
   ],
+
   openGraph: {
     title: "Free Study Abroad Webinar | Abroad Scholars",
     description:

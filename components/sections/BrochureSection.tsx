@@ -35,6 +35,7 @@ import {
   PHONE_DIGITS_REGEX,
   PHONE_SANITIZE_REGEX,
 } from "@/utils/regex";
+import { useRouter } from "next/navigation";
 
 interface FormData {
   name: string;
@@ -66,6 +67,7 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
   const [done, setDone] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const router = useRouter();
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
@@ -127,12 +129,18 @@ function RegForm({ brochure, pdfUrl }: RegFormProps) {
       if (brochure && pdfUrl) {
         setTimeout(() => {
           const link = document.createElement("a");
-          link.href = "/Abroad-Scholar-Free-Materials.pdf";
-          link.download = "Abroad-Scholar-Free-Materials.pdf";
+          link.href = pdfUrl;
+          link.download = pdfUrl.split("/").pop() || "guide.pdf";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
         }, 300);
+
+        router.push(
+          `/thank-you?name=${encodeURIComponent(formData.name)}&brochure=true`,
+        );
+      } else {
+        router.push(`/thank-you?name=${encodeURIComponent(formData.name)}`);
       }
     } catch (error) {
       console.error("Brochure form error:", error);

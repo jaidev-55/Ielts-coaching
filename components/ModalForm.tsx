@@ -1,19 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaTimes,
-  FaRocket,
-  FaCheckCircle,
-  FaGraduationCap,
-  FaSpinner,
-} from "react-icons/fa";
+import { FaTimes, FaRocket, FaGraduationCap, FaSpinner } from "react-icons/fa";
 import {
   EMAIL_REGEX,
   PHONE_DIGITS_REGEX,
   PHONE_SANITIZE_REGEX,
 } from "@/utils/regex";
 import CustomInput from "./common/CustomInput";
+import { useRouter } from "next/navigation";
 
 interface ModalFormProps {
   isOpen: boolean;
@@ -37,8 +32,9 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, onClose }) => {
     phone: "",
     city: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const router = useRouter();
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -109,12 +105,9 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, onClose }) => {
       if (!res.ok) {
         throw new Error("Failed to submit form");
       }
-
-      setIsSubmitted(true);
-
+      router.push(`/thank-you?name=${encodeURIComponent(formData.name)}`);
       setTimeout(() => {
         onClose();
-        setIsSubmitted(false);
         setFormData({ name: "", email: "", phone: "", city: "" });
       }, 3000);
     } catch (err) {
@@ -159,19 +152,6 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, onClose }) => {
       y: 20,
       transition: {
         duration: 0.2,
-      },
-    },
-  };
-
-  const successVariants: any = {
-    hidden: { opacity: 0, scale: 0.5 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 200,
       },
     },
   };
@@ -231,156 +211,134 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, onClose }) => {
 
                 {/* Content */}
                 <div className="p-5 sm:p-8 pt-14 sm:pt-16">
-                  {!isSubmitted ? (
-                    <>
-                      {/* Header */}
-                      <div className="text-center mb-5 sm:mb-6">
-                        <h3
-                          className="text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2"
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #0b3a81 0%, #0d4aa3 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                          }}
-                        >
-                          Register for IELTS Training
-                        </h3>
-
-                        <p className="text-xs sm:text-sm text-gray-600 font-nunito">
-                          Fill in your details and our team will get in touch
-                          with you
-                        </p>
-                      </div>
-
-                      <form
-                        onSubmit={handleSubmit}
-                        className={`space-y-3 sm:space-y-4 ${
-                          loading ? "pointer-events-none opacity-70" : ""
-                        }`}
+                  <>
+                    {/* Header */}
+                    <div className="text-center mb-5 sm:mb-6">
+                      <h3
+                        className="text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #0b3a81 0%, #0d4aa3 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
                       >
-                        {/* Name Input */}
-                        <div className="relative">
-                          <CustomInput
-                            name="name"
-                            placeholder="Your Full Name *"
-                            value={formData.name}
-                            error={errors.name}
-                            focused={focusedField === "name"}
-                            onFocus={() => setFocusedField("name")}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={handleChange}
-                          />
-                        </div>
-
-                        {/* Email Input */}
-                        <div className="relative">
-                          <CustomInput
-                            name="email"
-                            type="email"
-                            placeholder="Email Address *"
-                            value={formData.email}
-                            error={errors.email}
-                            focused={focusedField === "email"}
-                            onFocus={() => setFocusedField("email")}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={handleChange}
-                          />
-                        </div>
-
-                        {/* Phone Input */}
-                        <div className="relative">
-                          <CustomInput
-                            name="phone"
-                            type="tel"
-                            placeholder="Phone Number *"
-                            value={formData.phone}
-                            error={errors.phone}
-                            focused={focusedField === "phone"}
-                            onFocus={() => setFocusedField("phone")}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={(e) => {
-                              const value = e.target.value.replace(
-                                /[^\d+]/g,
-                                "",
-                              );
-                              setFormData({ ...formData, phone: value });
-                              setErrors({ ...errors, phone: "" });
-                            }}
-                          />
-                        </div>
-
-                        {/* City Input */}
-                        <div className="relative">
-                          <CustomInput
-                            name="city"
-                            placeholder="Enter Your City *"
-                            value={formData.city}
-                            error={errors.city}
-                            focused={focusedField === "city"}
-                            onFocus={() => setFocusedField("city")}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={handleChange}
-                          />
-                        </div>
-
-                        {/* Submit Button */}
-
-                        <button
-                          type="submit"
-                          className="group relative w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-linear-to-r from-amber-400 via-amber-500 to-amber-400 border-none cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 mt-2 font-poppins shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:scale-95 overflow-hidden"
-                        >
-                          {/* Primary shimmer effect */}
-                          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out">
-                            <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
-                          </span>
-
-                          {/* Secondary sparkle */}
-                          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 delay-100 ease-out">
-                            <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12" />
-                          </span>
-
-                          {/* Pulsing glow */}
-                          {loading ? (
-                            <>
-                              <FaSpinner className="animate-spin w-4 h-4" />
-                              <span>Submitting…</span>
-                            </>
-                          ) : (
-                            <>
-                              <FaRocket className="relative z-10 w-4 h-4 transition-transform group-hover:scale-110" />
-                              <span className="relative z-10">
-                                Reserve My Seat Now
-                              </span>
-                            </>
-                          )}
-                        </button>
-
-                        {/* Security Text */}
-                        <p className="text-[11px] sm:text-xs text-gray-400 text-center mt-2 sm:mt-3 font-nunito">
-                          🔒 100% secure. No spam, ever.
-                        </p>
-                      </form>
-                    </>
-                  ) : (
-                    <motion.div
-                      variants={successVariants}
-                      initial="hidden"
-                      animate="visible"
-                      className="text-center py-6 sm:py-8"
-                    >
-                      <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 mb-3 sm:mb-4">
-                        <FaCheckCircle className="text-3xl sm:text-4xl text-green-500" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 font-poppins">
-                        You're Registered!
+                        Register for IELTS Training
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-600 font-nunito px-4">
-                        Webinar details sent to your email!
+
+                      <p className="text-xs sm:text-sm text-gray-600 font-nunito">
+                        Fill in your details and our team will get in touch with
+                        you
                       </p>
-                    </motion.div>
-                  )}
+                    </div>
+
+                    <form
+                      onSubmit={handleSubmit}
+                      className={`space-y-3 sm:space-y-4 ${
+                        loading ? "pointer-events-none opacity-70" : ""
+                      }`}
+                    >
+                      {/* Name Input */}
+                      <div className="relative">
+                        <CustomInput
+                          name="name"
+                          placeholder="Your Full Name *"
+                          value={formData.name}
+                          error={errors.name}
+                          focused={focusedField === "name"}
+                          onFocus={() => setFocusedField("name")}
+                          onBlur={() => setFocusedField(null)}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      {/* Email Input */}
+                      <div className="relative">
+                        <CustomInput
+                          name="email"
+                          type="email"
+                          placeholder="Email Address *"
+                          value={formData.email}
+                          error={errors.email}
+                          focused={focusedField === "email"}
+                          onFocus={() => setFocusedField("email")}
+                          onBlur={() => setFocusedField(null)}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      {/* Phone Input */}
+                      <div className="relative">
+                        <CustomInput
+                          name="phone"
+                          type="tel"
+                          placeholder="Phone Number *"
+                          value={formData.phone}
+                          error={errors.phone}
+                          focused={focusedField === "phone"}
+                          onFocus={() => setFocusedField("phone")}
+                          onBlur={() => setFocusedField(null)}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/[^\d+]/g, "");
+                            setFormData({ ...formData, phone: value });
+                            setErrors({ ...errors, phone: "" });
+                          }}
+                        />
+                      </div>
+
+                      {/* City Input */}
+                      <div className="relative">
+                        <CustomInput
+                          name="city"
+                          placeholder="Enter Your City *"
+                          value={formData.city}
+                          error={errors.city}
+                          focused={focusedField === "city"}
+                          onFocus={() => setFocusedField("city")}
+                          onBlur={() => setFocusedField(null)}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      {/* Submit Button */}
+
+                      <button
+                        type="submit"
+                        className="group relative w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-linear-to-r from-amber-400 via-amber-500 to-amber-400 border-none cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 mt-2 font-poppins shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:scale-95 overflow-hidden"
+                      >
+                        {/* Primary shimmer effect */}
+                        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out">
+                          <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -skew-x-12" />
+                        </span>
+
+                        {/* Secondary sparkle */}
+                        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 delay-100 ease-out">
+                          <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12" />
+                        </span>
+
+                        {/* Pulsing glow */}
+                        {loading ? (
+                          <>
+                            <FaSpinner className="animate-spin w-4 h-4" />
+                            <span>Submitting…</span>
+                          </>
+                        ) : (
+                          <>
+                            <FaRocket className="relative z-10 w-4 h-4 transition-transform group-hover:scale-110" />
+                            <span className="relative z-10">
+                              Reserve My Seat Now
+                            </span>
+                          </>
+                        )}
+                      </button>
+
+                      {/* Security Text */}
+                      <p className="text-[11px] sm:text-xs text-gray-400 text-center mt-2 sm:mt-3 font-nunito">
+                        🔒 100% secure. No spam, ever.
+                      </p>
+                    </form>
+                  </>
                 </div>
               </div>
             </motion.div>

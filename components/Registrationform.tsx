@@ -9,6 +9,7 @@ import {
   PHONE_SANITIZE_REGEX,
   PHONE_DIGITS_REGEX,
 } from "@/utils/regex";
+import { useRouter } from "next/navigation";
 
 import CustomInput from "./common/CustomInput";
 
@@ -21,9 +22,8 @@ const RegistrationForm = () => {
     city: "",
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
 
   const validateForm = () => {
     // Collect validation errors
@@ -88,8 +88,7 @@ const RegistrationForm = () => {
         throw new Error("Failed to submit form");
       }
 
-      setSuccess(true);
-      setIsSubmitted(true);
+      router.push(`/thank-you?name=${encodeURIComponent(formData.name)}`);
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
@@ -101,27 +100,6 @@ const RegistrationForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
-
-  if (isSubmitted) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 15 }}
-        className="text-center py-6 sm:py-8"
-      >
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 mb-3 sm:mb-4">
-          <FaCheckCircle className="text-3xl sm:text-4xl text-green-500" />
-        </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 font-poppins">
-          You're Registered!
-        </h3>
-        <p className="text-sm sm:text-base text-gray-600 font-nunito px-4">
-          Webinar details sent to your email!
-        </p>
-      </motion.div>
-    );
-  }
 
   return (
     <form
